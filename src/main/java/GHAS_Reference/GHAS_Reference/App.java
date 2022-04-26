@@ -1,31 +1,20 @@
-package GHAS_Reference.GHAS_Reference;
+import java.sql.*;  
+class App{  
+	public static void main(String args[]){  
+		selectData("test");
+	}  
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-
-public class App
-
-{
-	static final String DB_URL = "jdbc:mysql://localhost/test";
-	static final String USER = "guest";
-	static final String PASS = "guest";
-
-	public static void main(String[] args) {
-
-		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-				Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery("SELECT id, first, last, age FROM Employees where id=" + args[0]);) {
-			while (rs.next()) {
-				System.out.print("ID: " + rs.getInt("id"));
-				System.out.print(", Age: " + rs.getInt("age"));
-				System.out.print(", First: " + rs.getString("first"));
-				System.out.println(", Last: " + rs.getString("last"));
-			}
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
+	public static void selectData(String emp){
+		try{  
+			Class.forName("com.mysql.jdbc.Driver");  
+			Connection con=DriverManager.getConnection( "jdbc:mysql://localhost:3306/sonoo","root","root");   
+			Statement stmt=con.createStatement();  
+			ResultSet rs=stmt.executeQuery("select * from emp where empId="+emp);  
+			while(rs.next())  
+				System.out.println(rs.getInt(1)+"  "+rs.getString(2)+"  "+rs.getString(3));  
+				con.close();  
+		}catch(Exception e){ 
+			System.out.println(e);
+		}  
 	}
-}
+}  
