@@ -1,10 +1,19 @@
 @Library(['piper-lib', 'piper-lib-os']) _
+       
+try{
+    node {
+        
+        stage('Init') {
+            checkout scm
+        }
 
-try {
-    deleteDir()
-    checkout scm
-    setupPipelineEnvironment script: this
-    codeqlExecuteScan script: this
+        stage('Codeql'){
+            setupPipelineEnvironment script: this
+            codeqlExecuteScan script: this
+        }           
+    }
 } catch (err) {
+  node {
     throw err
+  }
 }
