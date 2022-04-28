@@ -8,7 +8,7 @@ try{
         }
 
         stage('Codeql'){
-            setupCommonPipelineEnvironment script: this
+            setupPipelineEnvironment script: this 
             codeqlExecuteScan script: this
         }           
     }
