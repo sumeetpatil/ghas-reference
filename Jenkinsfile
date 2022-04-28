@@ -7,6 +7,4 @@ try {
     codeqlExecuteScan script: this
 } catch (err) {
     throw err
-  }
-} finally {
 }
