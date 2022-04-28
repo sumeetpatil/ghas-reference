@@ -1,7 +1,7 @@
 general:
   buildTool: 'maven'
   productiveBranch: 'master'
-  githubTokenCredentialsId: 'git-token'
+  githubTokenCredentialsId: 'git-token-sumeet'
 stages:
 steps:
   codeqlExecuteScan:
