@@ -2,7 +2,9 @@ general:
   buildTool: 'maven'
   productiveBranch: 'master'
   githubTokenCredentialsId: 'git-token-sumeet'
+  verbose: true
 stages:
 steps:
   codeqlExecuteScan:
     dockerImage: 'securitytestingtools.int.repositories.cloud.sap/piper/codeql:jdk8'
+    uploadResults: true
