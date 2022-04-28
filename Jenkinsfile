@@ -3,4 +3,23 @@
 env.REPOSITORY_UNDER_TEST       = 'sumeetpatil/jenkins-library' 
 env.LIBRARY_VERSION_UNDER_TEST  = 'sumeetpatil/jenkins-library'
        
-codeqlExecuteScan script: this
+try{
+    node {
+        
+        stage('Init') {
+            checkout scm
+        }
+
+        stage('Codeql'){
+            codeqlExecuteScan script: this
+        }           
+    }
+} catch (err) {
+  node {
+    throw err
+  }
+} finally {
+  node {
+    mailSendNotification script: this
+  }
+}
