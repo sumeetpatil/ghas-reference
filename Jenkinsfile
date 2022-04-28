@@ -12,7 +12,6 @@ try{
 
         stage('Codeql'){
             setupCommonPipelineEnvironment script: this
-            codeqlExecuteScan script: this
         }           
     }
 } catch (err) {
