@@ -1,0 +1,8 @@
+general:
+  buildTool: 'maven'
+  productiveBranch: 'master'
+  githubTokenCredentialsId: 'git-token'
+stages:
+steps:
+  codeqlExecuteScan:
+    dockerImage: 'securitytestingtools.int.repositories.cloud.sap/piper/codeql:jdk8'
