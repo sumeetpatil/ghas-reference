@@ -9,3 +9,4 @@ steps:
     dockerImage: 'securitytestingtools.int.repositories.cloud.sap/piper/codeql:jdk8'
     uploadResults: true
     analyzedRef: 'refs/heads/main'
+    repository: 'sumeetpatil/ghas-reference'
