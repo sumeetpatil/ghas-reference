@@ -7,7 +7,8 @@ try{
     node {
         
         stage('Init') {
-            checkout scm
+            scm_variables = checkout scm
+            echo scm_variables.get('GIT_COMMIT')
             sh 'env'
         }
 
