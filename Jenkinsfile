@@ -8,6 +8,7 @@ try{
         
         stage('Init') {
             checkout scm
+            sh 'env'
         }
 
         stage('Codeql'){
