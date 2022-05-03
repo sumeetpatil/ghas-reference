@@ -10,7 +10,7 @@ try{
             scmVars = checkout scm
             env.GIT_COMMIT = scmVars.get('GIT_COMMIT')
             env.GIT_URL = scmVars.get('GIT_URL')
-            env.GIT_BRANCH = scmVars.get('GIT_BRANCH').split("/")[1]
+            env.BRANCH_NAME = scmVars.get('GIT_BRANCH').split("/")[1]
             sh 'env'
         }
 
