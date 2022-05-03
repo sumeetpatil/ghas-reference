@@ -8,7 +8,7 @@ steps:
   codeqlExecuteScan:
     dockerImage: 'securitytestingtools.int.repositories.cloud.sap/piper/codeql:jdk8'
     uploadResults: true
-    analyzedRef: 'refs/heads/main'
+    analyzedRef: 'refs/heads/${env.GIT_LOCAL_BRANCH}'
     repository: '${env.GIT_URL}'
     commitId: '${env.GIT_COMMIT}'
     
