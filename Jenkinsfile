@@ -1,17 +1,13 @@
 @Library(['piper-lib', 'piper-lib-os']) _
 
-env.REPOSITORY_UNDER_TEST       = 'sumeetpatil/jenkins-library' 
-env.LIBRARY_VERSION_UNDER_TEST  = 'codeql-scan'
+env.REPOSITORY_UNDER_TEST       = 'SAP/jenkins-library' 
+env.LIBRARY_VERSION_UNDER_TEST  = 'fix-codeql-ref'
        
 try{
     node {
         
         stage('Init') {
-            scmVars = checkout scm
-            env.GIT_COMMIT = scmVars.get('GIT_COMMIT')
-            env.GIT_URL = scmVars.get('GIT_URL')
-            env.BRANCH_NAME = scmVars.get('GIT_BRANCH').split("/")[1]
-            sh 'env'
+            setupCommonPipelineEnvironment script: this
         }
 
         stage('Codeql'){
