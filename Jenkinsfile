@@ -8,8 +8,7 @@ try{
         
         stage('Init') {
             checkout scm
-            echo "${env.GIT_COMMIT}"
-               echo "${env.GIT_BRANCH}"
+            env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
             setupCommonPipelineEnvironment script: this
         }
 
