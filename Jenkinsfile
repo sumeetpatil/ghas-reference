@@ -8,6 +8,7 @@ try{
         
         stage('Init') {
             checkout scm
+               echo "${scm}"
             setupCommonPipelineEnvironment script: this
         }
 
