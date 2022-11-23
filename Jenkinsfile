@@ -7,6 +7,7 @@ try{
     node {
         
         stage('Init') {
+            checkout scm
             setupCommonPipelineEnvironment script: this
         }
 
