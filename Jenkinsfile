@@ -8,7 +8,8 @@ try{
         
         stage('Init') {
             checkout scm
-               echo "${scm}"
+            echo "${env.GIT_COMMIT}"
+               echo "${env.GIT_BRANCH}"
             setupCommonPipelineEnvironment script: this
         }
 
