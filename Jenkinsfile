@@ -3,17 +3,13 @@
 env.REPOSITORY_UNDER_TEST       = 'SAP/jenkins-library' 
 env.LIBRARY_VERSION_UNDER_TEST  = 'fix-codeql-ref'
        
-@NonCPS
-def printParams() {
-env.getEnvironment().each { name, value -> println "Name: $name -> Value $value" }
-}
-
 try{
     node {
         
         stage('Init') {
             checkout scm
-            printParams()
+               echo "${GIT_BRANCH}"
+                echo "${GIT_COMMIT}"
             setupCommonPipelineEnvironment script: this
         }
 
