@@ -7,7 +7,8 @@ try{
     node {
         
         stage('Init') {
-            checkout scm
+            def params = checkout scm
+            setupCommonPipelineEnvironment(script: this, scmInfo: params)
         }
 
         stage('Codeql'){
